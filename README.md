@@ -1,4 +1,4 @@
-# multi_selector_dialog_library
+# multi selector bottom sheet library
 
 How to implement?
 ```
