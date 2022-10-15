@@ -19,7 +19,6 @@
             android:id="@+id/selectedTitle"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            style="@style/SubTitle_small"
             android:textColor="@color/white"
             android:paddingTop="@dimen/padding_small"
             android:gravity="center"
@@ -36,7 +35,7 @@
 
             android:layout_marginEnd="@dimen/padding_medium"
             android:layout_height="match_parent"
-            android:src="@drawable/ic_baseline_cancel_24"
+            android:src="@drawable/search"
             app:tint="@color/white"/>
 
     </LinearLayout>
