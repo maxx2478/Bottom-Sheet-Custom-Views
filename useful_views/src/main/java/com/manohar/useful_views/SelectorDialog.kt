@@ -5,13 +5,17 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
-import androidx.appcompat.app.AlertDialog
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.fragment.app.Fragment
+import android.view.WindowManager
+import android.widget.TextView
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
+
 
 class SelectorDialog() {
 
@@ -19,26 +23,63 @@ class SelectorDialog() {
         lateinit var selectionAdapter: SelectionAdapter
 
 
-        fun showSelectorDialog(context: Context, RealLists: ArrayList<SelectionModel>,  onSubmit: ((List<SelectionModel?>) -> Unit)? = null) : AlertDialog {
+        fun showSelectorDialog(title: String, context: Context, RealLists: ArrayList<SelectionModel>,  onSubmit: ((List<SelectionModel?>) -> Unit)? = null) : BottomSheetDialog {
             val list = RealLists
+            val sheet = BottomSheetDialog(context)
+
             val factory = LayoutInflater.from(context)
-            val deleteDialogView: View =
+            val dialogView: View =
                 factory.inflate(R.layout.dialog_selector, null)
-            val dialog = AlertDialog.Builder(context).create()
-            dialog.setCancelable(true)
-            dialog.setView(deleteDialogView)
-            dialog.setCanceledOnTouchOutside(true)
+            sheet.setContentView(dialogView)
+
+            val mBottomSheetBehaviorCallback: BottomSheetCallback =
+                object : BottomSheetCallback() {
+                    override fun onStateChanged(bottomSheet: View, newState: Int) {
+                        if (newState == BottomSheetBehavior.STATE_HIDDEN) {
+                            sheet.dismiss()
+                        }
+                    }
+
+                    override fun onSlide(bottomSheet: View, slideOffset: Float) {}
+                }
+
+            sheet.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
+            val params =
+                (dialogView.getParent() as View).layoutParams as CoordinatorLayout.LayoutParams
+            val behavior = params.behavior
+
+
+
+
+            if (behavior != null && behavior is BottomSheetBehavior<*>) {
+                behavior.setBottomSheetCallback(mBottomSheetBehaviorCallback)
+                (behavior as BottomSheetBehavior<*>).state = BottomSheetBehavior.STATE_EXPANDED
+            }
+
+            /*val dialog = AlertDialog.Builder(context).create()
+            dialog.setCancelable(false)
+            dialog.setView(dialogView)
+            dialog.setCanceledOnTouchOutside(false)
+            dialog.window?.setGravity(Gravity.BOTTOM)*/
+
+
+            //dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
 
 
             val selectorRV: RecyclerView? =
-                deleteDialogView.findViewById<RecyclerView>(R.id.selectorRV)
+                dialogView.findViewById<RecyclerView>(R.id.selectorRV)
 
             val done: MaterialButton? =
-                deleteDialogView.findViewById<MaterialButton>(R.id.done)
+                dialogView.findViewById<MaterialButton>(R.id.done)
 
             val search: TextInputEditText? =
-                deleteDialogView.findViewById<TextInputEditText>(R.id.search_bar)
+                dialogView.findViewById<TextInputEditText>(R.id.search_bar)
 
+
+            val titleSheet : TextView? =
+                dialogView.findViewById<TextView>(R.id.title)
+
+            titleSheet?.text = title
 
 
             selectionAdapter = SelectionAdapter()
@@ -54,7 +95,7 @@ class SelectorDialog() {
 
 
             done?.setOnClickListener {
-                dialog.dismiss()
+                sheet.dismiss()
                 onSubmit?.invoke(list.filter {item-> item.isSelected })
             }
 
@@ -84,8 +125,13 @@ class SelectorDialog() {
 
             })
 
-            return dialog
+
+
+            return sheet
         }
+
+
+
     }
 
 

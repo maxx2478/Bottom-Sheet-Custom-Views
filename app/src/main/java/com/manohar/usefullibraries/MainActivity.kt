@@ -14,11 +14,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val list = arrayListOf<SelectionModel>()
-        list.add(SelectionModel(data = SearchModel("1", "name1"), isSelected = false))
-        list.add(SelectionModel(data = SearchModel("2", "name12"), isSelected = false))
-        list.add(SelectionModel(data = SearchModel("3", "name13"), isSelected = false))
+        list.add(SelectionModel(data = SearchModel("1", "Apples"), isSelected = false))
+        list.add(SelectionModel(data = SearchModel("2", "Grapes"), isSelected = false))
+        list.add(SelectionModel(data = SearchModel("3", "Oranges"), isSelected = false))
+        list.add(SelectionModel(data = SearchModel("4", "Pineapples"), isSelected = false))
+        list.add(SelectionModel(data = SearchModel("4", "Pineapples"), isSelected = false))
+        list.add(SelectionModel(data = SearchModel("4", "Pineapples"), isSelected = false))
+        list.add(SelectionModel(data = SearchModel("4", "Pineapples"), isSelected = false))
+        list.add(SelectionModel(data = SearchModel("4", "Pineapples"), isSelected = false))
+        list.add(SelectionModel(data = SearchModel("4", "Pineapples"), isSelected = false))
+        list.add(SelectionModel(data = SearchModel("4", "Pineapples"), isSelected = false))
+        list.add(SelectionModel(data = SearchModel("4", "Pineapples"), isSelected = false))
+        list.add(SelectionModel(data = SearchModel("4", "Pineapples"), isSelected = false))
 
-        val dialog = SelectorDialog.showSelectorDialog(this, list){
+        val dialog = SelectorDialog.showSelectorDialog("Choose a fav. fruit" ,this, list){
             Toast.makeText(this, it.toString(), Toast.LENGTH_SHORT).show()
         }.show()
 
