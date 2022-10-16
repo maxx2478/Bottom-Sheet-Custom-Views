@@ -12,7 +12,7 @@ allprojects {
 add dependencies:
 ```
 dependencies {
-	 implementation 'com.github.maxx2478:multi_selector_dialog_library:Tag'
+	 implementation 'com.github.maxx2478:multi_selector_dialog_library:1.1'
 	}
   ```
   How to show Bottom Sheet Dialog?
