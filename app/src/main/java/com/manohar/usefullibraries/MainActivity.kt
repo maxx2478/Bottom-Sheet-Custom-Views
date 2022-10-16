@@ -18,20 +18,13 @@ class MainActivity : AppCompatActivity() {
         list.add(SelectionModel(data = SearchModel("2", "Grapes"), isSelected = false))
         list.add(SelectionModel(data = SearchModel("3", "Oranges"), isSelected = false))
         list.add(SelectionModel(data = SearchModel("4", "Pineapples"), isSelected = false))
-        list.add(SelectionModel(data = SearchModel("4", "Pineapples"), isSelected = false))
-        list.add(SelectionModel(data = SearchModel("4", "Pineapples"), isSelected = false))
-        list.add(SelectionModel(data = SearchModel("4", "Pineapples"), isSelected = false))
-        list.add(SelectionModel(data = SearchModel("4", "Pineapples"), isSelected = false))
-        list.add(SelectionModel(data = SearchModel("4", "Pineapples"), isSelected = false))
-        list.add(SelectionModel(data = SearchModel("4", "Pineapples"), isSelected = false))
-        list.add(SelectionModel(data = SearchModel("4", "Pineapples"), isSelected = false))
-        list.add(SelectionModel(data = SearchModel("4", "Pineapples"), isSelected = false))
 
-        val dialog = SelectorDialog.showSelectorDialog("Choose a fav. fruit" ,this, list){
-            Toast.makeText(this, it.toString(), Toast.LENGTH_SHORT).show()
+
+        SelectorDialog.showSelectorDialog("Choose your favourite fruits", this, list) { selectedItems->
+            //Selected Items List
+            Toast.makeText(this, selectedItems.toString(), Toast.LENGTH_SHORT).show()
+
         }.show()
-
-
 
 
     }

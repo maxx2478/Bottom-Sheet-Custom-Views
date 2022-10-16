@@ -10,12 +10,20 @@
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10sp"
    >
+
+    <View
+        android:id="@+id/bar"
+        android:background="@color/grey_light"
+        android:layout_centerHorizontal="true"
+        android:layout_width="40sp"
+        android:layout_height="2sp"/>
 
     <RelativeLayout
         android:id="@+id/header"
+        android:layout_below="@id/bar"
         android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/margin_medium"
         android:layout_height="wrap_content">
 
         <TextView
@@ -24,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toStartOf="@id/done"
-            android:fontFamily="@font/poppins"
+            android:fontFamily="@font/poppins_medium"
             android:gravity="start"
             android:text="Make Selection"
             android:textSize="16sp"
@@ -32,14 +40,16 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/done"
-            android:layout_width="80dp"
+            android:layout_width="70dp"
             android:layout_height="38sp"
             android:layout_alignParentEnd="true"
-            android:fontFamily="@font/poppins"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
             android:text="Done"
             android:textAllCaps="false"
             android:textSize="11sp"
             app:cornerRadius="5sp"
+            app:elevation="2sp"
             app:layout_constraintBottom_toBottomOf="parent"
             tools:layout_editor_absoluteX="10dp" />
 
@@ -54,23 +64,25 @@
         android:layout_marginVertical="10sp"
         android:background="@drawable/circular_outline"
         android:backgroundTint="@color/grey_light"
-        android:drawableStart="@drawable/search"
-        android:fontFamily="@font/poppins"
+        android:drawableEnd="@drawable/search"
         android:drawablePadding="@dimen/margin_medium"
-        android:drawableTint="@color/black"
+        android:drawableTint="@color/grey_extra_dark"
+        android:fontFamily="@font/poppins"
         android:hint="Search"
-        android:padding="@dimen/padding_medium"
+        android:paddingStart="@dimen/padding_large"
+        android:paddingTop="@dimen/padding_medium"
+        android:paddingEnd="@dimen/padding_large"
+        android:paddingBottom="@dimen/margin_medium"
         android:singleLine="true"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
+        android:textColorHint="@color/grey_extra_dark"
         android:textSize="12sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/selectorRV"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:overScrollMode="never"
         android:layout_below="@id/search_bar"
+        android:overScrollMode="never"
         tools:itemCount="5"
         tools:listitem="@layout/item_selector" />
 
