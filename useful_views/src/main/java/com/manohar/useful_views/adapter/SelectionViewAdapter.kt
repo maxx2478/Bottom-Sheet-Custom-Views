@@ -1,6 +1,5 @@
 package com.equinoxlab.annapurna.framework.utils.multi_selection_drop_down
 
-import android.text.method.TextKeyListener.clear
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.manohar.useful_views.R
-import com.manohar.useful_views.SelectionModel
+import com.manohar.useful_views.adapter.SelectionModel
 
 
 class SelectionViewAdapter: RecyclerView.Adapter<SelectionViewAdapter.MyViewHolder>() {

@@ -3,10 +3,10 @@ package com.manohar.usefullibraries
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.manohar.useful_views.SearchModel
-import com.manohar.useful_views.SelectionModel
-import com.manohar.useful_views.SelectorDialog
-import java.nio.channels.Selector
+import com.manohar.useful_views.adapter.SearchModel
+import com.manohar.useful_views.adapter.SelectionModel
+import com.manohar.useful_views.views.MultiSelectorDialog
+import com.manohar.useful_views.views.SelectorDialog
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +20,13 @@ class MainActivity : AppCompatActivity() {
         list.add(SelectionModel(data = SearchModel("4", "Pineapples"), isSelected = false))
 
 
-        SelectorDialog.showSelectorDialog("Choose your favourite fruits", this, list) { selectedItems->
+        SelectorDialog.show("Choose your favourite fruits", this, list) { selectedItems->
+            //Selected Items List
+            Toast.makeText(this, selectedItems.toString(), Toast.LENGTH_SHORT).show()
+
+        }.show()
+
+        MultiSelectorDialog.show("Choose your favourite fruits", this, list) { selectedItems->
             //Selected Items List
             Toast.makeText(this, selectedItems.toString(), Toast.LENGTH_SHORT).show()
 
