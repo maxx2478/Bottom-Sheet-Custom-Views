@@ -15,12 +15,12 @@
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins"
-            android:layout_toStartOf="@id/selected"
             android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/selected"
+            android:fontFamily="@font/poppins_medium"
             android:gravity="center|start"
             android:text="Title"
-            android:textSize="@dimen/text_small" />
+            android:textSize="11sp" />
 
         <CheckBox
             android:id="@+id/selected"

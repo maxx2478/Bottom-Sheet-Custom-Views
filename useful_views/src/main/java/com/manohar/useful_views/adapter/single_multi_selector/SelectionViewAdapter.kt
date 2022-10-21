@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.manohar.useful_views.R
-import com.manohar.useful_views.adapter.SelectionModel
+import com.manohar.useful_views.adapter.single_multi_selector.SelectionModel
 
 
 class SelectionViewAdapter: RecyclerView.Adapter<SelectionViewAdapter.MyViewHolder>() {

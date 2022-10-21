@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10sp"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <View
+            android:id="@+id/bar"
+            android:background="@color/grey_light"
+            android:layout_width="40sp"
+            android:layout_gravity="center"
+            android:layout_height="2sp"/>
+
+        <RelativeLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="start"
+                android:text="Filters"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/padding_small"
+            android:layout_height="1sp"
+            android:layout_marginBottom="@dimen/margin_medium"
+            android:alpha="0.2"
+            android:background="@color/grey_extra_dark"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:orientation="horizontal">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/filterCatsRV"
+                android:layout_width="0sp"
+                android:layout_weight="2"
+                android:layout_height="match_parent"
+                android:overScrollMode="never"
+                tools:itemCount="5"
+                tools:listitem="@layout/item_cat" />
+
+            <View
+                android:layout_height="match_parent"
+                android:layout_width="1sp"
+                android:background="@color/grey_extra_dark"
+                android:layout_marginEnd="@dimen/padding_small"
+                android:alpha="0.2"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/filterRv"
+                android:layout_width="0sp"
+                android:layout_weight="2"
+                android:layout_height="match_parent"
+                android:overScrollMode="never"
+                tools:itemCount="5"
+                tools:listitem="@layout/item_selector" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/clear"
+                android:layout_width="0sp"
+                android:layout_weight="2"
+                android:layout_height="48sp"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
+                android:text="Clear All"
+                android:backgroundTint="@color/grey_extra_dark"
+                android:textAllCaps="false"
+                android:layout_marginEnd="2sp"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                app:cornerRadius="5sp"
+                app:elevation="2sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:layout_editor_absoluteX="10dp" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/done"
+                android:layout_width="0sp"
+                android:layout_weight="2"                android:layout_height="48sp"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
+                android:layout_marginStart="2sp"
+                android:text="Submit"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                app:cornerRadius="5sp"
+                app:elevation="2sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:layout_editor_absoluteX="10dp" />
+
+
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout></androidx.coordinatorlayout.widget.CoordinatorLayout>

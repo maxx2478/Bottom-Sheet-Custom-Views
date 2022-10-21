@@ -1,4 +1,4 @@
-package com.manohar.useful_views.adapter
+package com.manohar.useful_views.adapter.single_multi_selector
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

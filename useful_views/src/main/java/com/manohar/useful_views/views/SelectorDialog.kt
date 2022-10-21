@@ -16,8 +16,8 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.manohar.useful_views.R
-import com.manohar.useful_views.adapter.SelectionAdapter
-import com.manohar.useful_views.adapter.SelectionModel
+import com.manohar.useful_views.adapter.single_multi_selector.SelectionAdapter
+import com.manohar.useful_views.adapter.single_multi_selector.SelectionModel
 
 class SelectorDialog {
 
