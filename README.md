@@ -15,7 +15,7 @@ dependencies {
 	 implementation 'com.github.maxx2478:multi_selector_dialog_library:1.1'
 	}
   ```
-  How to show Bottom Sheet Dialog?
+ Show a Multi Selector Bottom Sheet Dialog
   ```
         val list = arrayListOf<SelectionModel>()
         list.add(SelectionModel(data = SearchModel("1", "Apples"), isSelected = false))
