@@ -16,6 +16,8 @@ dependencies {
 	}
   ```
 1) Show a Filter Bottom Sheet (inspired by flipkart)
+![image](https://user-images.githubusercontent.com/64951609/197324236-6f8a8646-2d4a-4fb7-b966-8d9579d33d56.png)
+
 ```
 var list2 = arrayListOf<Category?>()
 list2.add(
@@ -30,7 +32,7 @@ list2.add(
                     SelectionModel(data = SearchModel("3", "Grapes 2"), isSelected = false, catID = "1.1"),
                     SelectionModel(data = SearchModel("4", "Grapes 3"), isSelected = false, catID = "1.1")
                 ),
-                isSingleSelection = false
+                isSingleSelection = false //choose mode : true-> single selection, false -> many
             )
         )
 // add more items in the list
@@ -56,7 +58,7 @@ FilterBottomSheetDialog.show("Filters", this, list){ it->
 
   ```
 ![image](https://user-images.githubusercontent.com/64951609/196044350-3bdd920b-29c5-40f5-ad8a-1bd7e9e9f999.png)
-![image](https://user-images.githubusercontent.com/64951609/196044374-2cafa511-0cd5-4bad-a40a-64ab1df16b6a.png)
+
 
 3)  Show a Single Selection Bottom Sheet
   ```
