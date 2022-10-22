@@ -4,31 +4,34 @@
         android:layout_width="match_parent"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         app:cardElevation="0sp"
-        app:cardCornerRadius="15sp"
+        app:cardCornerRadius="5sp"
         android:id="@+id/container"
-        android:layout_marginEnd="@dimen/padding_small"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginEnd="@dimen/margin_medium"
         android:layout_marginBottom="@dimen/padding_small"
-        android:layout_marginTop="@dimen/padding_small"
+        android:layout_marginTop="@dimen/margin_medium"
         android:layout_height="wrap_content">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:padding="@dimen/padding_small"
-            android:layout_height="45sp">
+            android:paddingStart="@dimen/padding_small"
+            android:paddingEnd="@dimen/padding_small"
+            android:layout_height="40sp">
 
             <TextView
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fontFamily="@font/poppins_medium"
-                android:textStyle="bold"
-                android:maxLines="1"
-                android:ellipsize="end"
-                android:paddingStart="@dimen/padding_small"
                 android:layout_centerVertical="true"
+                android:ellipsize="end"
+                android:textColor="@color/grey_extra_dark"
+                android:fontFamily="@font/poppins_medium"
                 android:gravity="center|start"
+                android:maxLines="1"
+                android:paddingStart="@dimen/padding_small"
                 android:text="Title"
-                android:textSize="11sp" />
+                android:textSize="11sp"
+                android:textStyle="bold" />
 
 
         </RelativeLayout>

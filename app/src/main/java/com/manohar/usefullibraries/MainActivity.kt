@@ -3,6 +3,7 @@ package com.manohar.usefullibraries
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import android.widget.Toast
 import com.manohar.useful_views.adapter.filters.Category
 import com.manohar.useful_views.adapter.single_multi_selector.SearchModel
@@ -10,8 +11,12 @@ import com.manohar.useful_views.adapter.single_multi_selector.SelectionModel
 import com.manohar.useful_views.views.FilterBottomSheetDialog
 import com.manohar.useful_views.views.MultiSelectorDialog
 import com.manohar.useful_views.views.SelectorDialog
+import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
+
+    var list2 = arrayListOf<Category?>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -36,7 +41,7 @@ class MainActivity : AppCompatActivity() {
          }.show()*/
 
 
-        val list2 = arrayListOf<Category>()
+
 
         list2.add(
             Category(
@@ -45,11 +50,12 @@ class MainActivity : AppCompatActivity() {
                 isCatHovered = false,
                 isCatSelected = false,
                 filters = arrayListOf<SelectionModel>(
-                    SelectionModel(data = SearchModel("1", "Apples"), isSelected = false),
-                    SelectionModel(data = SearchModel("2", "Grapes"), isSelected = false),
-                    SelectionModel(data = SearchModel("3", "Grapes 2"), isSelected = false),
-                    SelectionModel(data = SearchModel("4", "Grapes 3"), isSelected = false)
-                )
+                    SelectionModel(data = SearchModel("1", "Apples"), isSelected = false, catID = "1.1"),
+                    SelectionModel(data = SearchModel("2", "Grapes"), isSelected = false, catID = "1.1"),
+                    SelectionModel(data = SearchModel("3", "Grapes 2"), isSelected = false, catID = "1.1"),
+                    SelectionModel(data = SearchModel("4", "Grapes 3"), isSelected = false, catID = "1.1")
+                ),
+                isSingleSelection = false
             )
         )
 
@@ -60,20 +66,32 @@ class MainActivity : AppCompatActivity() {
                 isCatHovered = false,
                 isCatSelected = false,
                 filters = arrayListOf<SelectionModel>(
-                    SelectionModel(data = SearchModel("5", "Mogra"), isSelected = false),
-                    SelectionModel(data = SearchModel("6", "Chafa"), isSelected = false),
-                    SelectionModel(data = SearchModel("7", "Lili"), isSelected = false),
-                    SelectionModel(data = SearchModel("8", "Rose 22"), isSelected = false)
+                    SelectionModel(data = SearchModel("5", "Mogra"), isSelected = false, catID = "1.2"),
+                    SelectionModel(data = SearchModel("6", "Chafa"), isSelected = false, catID = "1.2"),
+                    SelectionModel(data = SearchModel("7", "Lili"), isSelected = false, catID = "1.2"),
+                    SelectionModel(data = SearchModel("8", "Rose 22"), isSelected = false, catID = "1.2")
                 ),
                 isSingleSelection =  true
             )
         )
 
 
-        FilterBottomSheetDialog.show("Filters", this, list2){
-            Log.i("Filters", it.toString())
-        }.show()
+        val textview = findViewById<TextView>(R.id.textview)
+        textview.setOnClickListener {
+            showDialog(list2)
+        }
+
 
 
     }
+
+
+    private fun showDialog(list: java.util.ArrayList<Category?>)
+    {
+        FilterBottomSheetDialog.show("Filters", this, list){
+            list2 = ArrayList(it)
+        }.show()
+    }
+
+
 }

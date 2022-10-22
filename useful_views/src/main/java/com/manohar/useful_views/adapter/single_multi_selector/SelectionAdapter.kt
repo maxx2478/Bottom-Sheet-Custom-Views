@@ -8,7 +8,8 @@ import com.manohar.useful_views.databinding.ItemSelectorBinding
 
 data class SelectionModel(
     val data: SearchModel?,
-    var isSelected: Boolean
+    var isSelected: Boolean,
+    var catID:String? = ""
 )
 
 data class SearchModel(val id: String, val name: String)

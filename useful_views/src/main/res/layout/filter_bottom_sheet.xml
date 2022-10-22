@@ -55,30 +55,34 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/filterCatsRV"
                 android:layout_width="0sp"
-                android:layout_weight="2"
+                android:layout_weight="1.5"
+                android:background="@color/grey_extra_light"
                 android:layout_height="match_parent"
                 android:overScrollMode="never"
                 tools:itemCount="5"
                 tools:listitem="@layout/item_cat" />
 
-            <View
-                android:layout_height="match_parent"
-                android:layout_width="1sp"
-                android:background="@color/grey_extra_dark"
-                android:layout_marginEnd="@dimen/padding_small"
-                android:alpha="0.2"
-                />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/filterRv"
                 android:layout_width="0sp"
                 android:layout_weight="2"
+                android:paddingTop="@dimen/margin_medium"
+                android:paddingStart="@dimen/padding_small"
                 android:layout_height="match_parent"
                 android:overScrollMode="never"
                 tools:itemCount="5"
                 tools:listitem="@layout/item_selector" />
 
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_height="1sp"
+            android:layout_marginBottom="@dimen/margin_medium"
+            android:alpha="0.2"
+            android:background="@color/grey_extra_dark"/>
 
 
         <LinearLayout

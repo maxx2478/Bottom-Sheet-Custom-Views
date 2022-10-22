@@ -8,5 +8,5 @@ data class Category(
     var isCatHovered: Boolean?,
     var isCatSelected: Boolean?,
     var filters : ArrayList<SelectionModel>,
-    val isSingleSelection : Boolean? = false
+    var isSingleSelection : Boolean? = false
 )

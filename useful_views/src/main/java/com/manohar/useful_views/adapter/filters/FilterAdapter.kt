@@ -28,7 +28,7 @@ class FilterAdapter(var onMarked: ((SelectionModel?, Boolean) -> Unit)? = null) 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = getItem(position)
-        holder.bind(currentItem, onMarked)
+        holder.bind(currentItem)
         Log.i("categoryAdapte", currentItem.toString())
 
     }
@@ -36,7 +36,7 @@ class FilterAdapter(var onMarked: ((SelectionModel?, Boolean) -> Unit)? = null) 
     inner class ViewHolder(private val binding: ItemSelectorBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(current: SelectionModel, onMarked: ((SelectionModel?, Boolean) -> Unit)?) {
+        fun bind(current: SelectionModel) {
             binding.title.text = current.data?.name ?: ""
             binding.selected.isChecked = current.isSelected
             binding.selected.setOnClickListener {

@@ -28,7 +28,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:buttonTint="@color/grey_extra_dark"
             android:text="@null"
             android:translationX="12dp" />
 
