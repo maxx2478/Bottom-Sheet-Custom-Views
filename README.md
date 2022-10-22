@@ -12,7 +12,7 @@ allprojects {
 add dependencies:
 ```
 dependencies {
-	 implementation 'com.github.maxx2478:multi_selector_dialog_library:1.1'
+	implementation 'com.github.maxx2478:Bottom-Sheet-Custom-Views:v1.01'
 	}
   ```
   
@@ -21,8 +21,8 @@ dependencies {
 ![image](https://user-images.githubusercontent.com/64951609/197324236-6f8a8646-2d4a-4fb7-b966-8d9579d33d56.png)
 
 ```
-var list2 = arrayListOf<Category?>()
-list2.add(
+var originalList = arrayListOf<Category?>()
+originalList.add(
             Category(
                 catID = "1.1",
                 catName = "Fruits Fruits Fruits FruitsFruits FruitsFruits",
@@ -38,10 +38,12 @@ list2.add(
             )
         )
 // add more items in the list
-FilterBottomSheetDialog.show("Filters", this, list){ it->
+
+//Show the bottom sheet
+FilterBottomSheetDialog.show("Filters", this, originalList){ it->
         //List of all items (including selected and not selected)
-        list2 = ArrayList(it) //update your list
-	filterUIItems(list2)
+        originalList = ArrayList(it) //update your list
+	filterUIItems(originalList)
         }.show()
 ```
   
@@ -51,7 +53,8 @@ FilterBottomSheetDialog.show("Filters", this, list){ it->
         list.add(SelectionModel(data = SearchModel("1", "Apples"), isSelected = false))
         list.add(SelectionModel(data = SearchModel("2", "Grapes"), isSelected = false))
         //add as much as you want
-
+	
+        //Show the bottom sheet
         MultiSelectorDialog.show("Choose your favourite fruits", this, list) { selectedItems->
             //Selected Items List
             Toast.makeText(this, selectedItems.toString(), Toast.LENGTH_SHORT).show()
@@ -69,6 +72,7 @@ FilterBottomSheetDialog.show("Filters", this, list){ it->
         list.add(SelectionModel(data = SearchModel("2", "Grapes"), isSelected = false))
         //add as much as you want
 
+        //Show the bottom sheet
         SelectorDialog.show("Choose your favourite fruits", this, list) { selectedItem->
             //Selected Item 
             Toast.makeText(this, selectedItem.toString(), Toast.LENGTH_SHORT).show()
