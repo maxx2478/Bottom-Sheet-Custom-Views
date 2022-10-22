@@ -12,7 +12,7 @@ allprojects {
 add dependencies:
 ```
 dependencies {
-	 implementation 'com.github.maxx2478:multi_selector_dialog_library:1.1'
+	implementation 'com.github.maxx2478:Bottom-Sheet-Custom-Views:v1.01'
 	}
   ```
   
